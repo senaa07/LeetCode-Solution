@@ -3,7 +3,7 @@ public:
     int removeDuplicates(vector<int>& nums) {
        
         int n = nums.size();
-        int x =0,i=0,k=0;
+        int i=0,k=0;
         while(i<n){
             int curr = nums[i];
             int cnt = 0;
@@ -12,6 +12,7 @@ public:
                 cnt++;
                 i++;
             }
+
             if(cnt>1){
                 nums[k] = curr;
                 k++;
