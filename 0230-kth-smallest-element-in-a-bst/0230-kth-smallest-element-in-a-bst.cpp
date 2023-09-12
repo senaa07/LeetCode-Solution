@@ -13,9 +13,10 @@ class Solution {
 public:
     
     int count=0;
-    int ans;
+    int ans=0;
     void helper(TreeNode* root,int k){
-        if(!root) return;        
+        if(!root) return;  
+        if(ans!=0) return;      
         helper(root->left, k);
         count++;
         if(count == k) ans=root->val;
