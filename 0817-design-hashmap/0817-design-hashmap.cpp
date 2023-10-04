@@ -16,11 +16,10 @@ public:
         
         }
         HashMap.push_back(make_pair(key,value));
-        return ;
     }
     
     int get(int key) {
-        for(auto i: HashMap){
+        for(const auto& i: HashMap){
             if(i.first == key){
                 return i.second;
             }
