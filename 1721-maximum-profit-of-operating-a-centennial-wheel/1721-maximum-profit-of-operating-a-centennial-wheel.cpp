@@ -2,15 +2,12 @@ class Solution {
 public:
     int minOperationsMaxProfit(vector<int>& customers, int boardingCost, int runningCost) {
         
-        int waiting=0;
-        int profit=0;
-        int rotation=0;
+        int waiting=0,profit=0,rotation=0;
         int i=0;
         while(i<customers.size() || waiting!=0 ){
             if(i<customers.size()){
                 if(waiting==0 && customers[i]==0 && i==customers.size()-1){
-                    i++;
-                    continue;
+                    break;
                 } 
                 waiting += customers[i];
                 if(waiting>4){
@@ -37,7 +34,6 @@ public:
                 
             }
         }
-        cout<<profit;
         if(profit>0) return rotation;
         return -1;
     }
