@@ -15,14 +15,11 @@ private:
     bool result = true;
     void checkSame(TreeNode* node1, TreeNode* node2){
         if(!node1 && !node2) return;
-        if(!node1 && node2){
+        if(!node1 || !node2){
             result=false;
             return;
         }
-        if(node1 && !node2){
-            result=false;
-            return;
-        }
+        
         checkSame(node1->left, node2->left);
         if(node1->val != node2->val) result=false;
         checkSame(node1->right, node2->right);
