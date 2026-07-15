@@ -12,19 +12,20 @@
 class Solution {
 private:
     vector<vector<int>> ans;
-    void checkPath(TreeNode* node,int targetSum, long long int sum, vector<int> path){
+    void checkPath(TreeNode* node,int targetSum, long long int sum, vector<int>& path){
         if(!node) return; //whennode is null
         
 
         path.push_back(node->val);
         sum += node->val;
-        if(node->left == NULL && node->right == NULL && ( sum == targetSum )){
+        if(!node->left && !node->right && ( sum == targetSum )){
             ans.push_back(path);
-            return;
+            
         }
 
         checkPath(node->left, targetSum,sum,path);
         checkPath(node->right,targetSum,sum,path);
+        path.pop_back();
     }
 
 public:
