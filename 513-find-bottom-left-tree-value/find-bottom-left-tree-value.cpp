@@ -10,28 +10,18 @@
  * };
  */
 class Solution {
-
-private:
-    pair<int,int> solve(TreeNode* node,int level){
-        if(!node) return {-2,level+1};
-
-        pair<int,int> left = solve(node->left,level+1);
-        pair<int,int> right = solve(node->right,level+1);
-
-        if(left.first == -2 && right.first==-2) return {node->val,level+1};
-        if(left.first ==-2 ) return right;
-        if(right.first ==-2 ) return left;
-
-        if(left.second < right.second) return right;
-        return left;
-    }
-
-
 public:
     int findBottomLeftValue(TreeNode* root) {
-        if(!root) return 0;
-        if(!(root->left) && !(root->right) ) return root->val;
-        pair<int,int> ans = solve(root,0);
-        return ans.first;
+        queue<TreeNode*> queue;
+        TreeNode* current = root;
+        queue.push(current);
+
+        while(!queue.empty()){
+            current = queue.front();
+            queue.pop();
+            if(current->right) queue.push(current->right);
+            if(current->left) queue.push(current->left);
+        }
+        return current->val;
     }
 };
