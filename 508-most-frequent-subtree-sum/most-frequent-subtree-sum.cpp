@@ -17,8 +17,9 @@ private:
 
     int calculateSumAtEachNode(TreeNode* node){
         if(!node) return 0;
-
-        int sum = node->val + calculateSumAtEachNode(node->left) + calculateSumAtEachNode(node->right);
+        int leftSum = calculateSumAtEachNode(node->left);
+        int rightSum = calculateSumAtEachNode(node->right);
+        int sum = node->val + leftSum + rightSum;
 
         freq[sum]++;
         if(freq[sum] > maxFreq) maxFreq = freq[sum];
