@@ -11,7 +11,7 @@ public:
     void deleteNode(ListNode* node) {
         ListNode *current = node;
         ListNode *nextNode = current->next;
-        ListNode *nullNode = NULL;
+        
 
         while(nextNode->next != NULL){
             current->val = nextNode->val;
@@ -22,7 +22,6 @@ public:
         current->val = nextNode->val;
         current->next = NULL;
         
-
         return;
     }
 };
