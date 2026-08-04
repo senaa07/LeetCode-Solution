@@ -13,14 +13,8 @@ public:
         ListNode *nextNode = current->next;
         
 
-        while(nextNode->next != NULL){
-            current->val = nextNode->val;
-
-            current = current->next;
-            nextNode = nextNode->next;
-        }
         current->val = nextNode->val;
-        current->next = NULL;
+        current->next = nextNode->next;
         
         return;
     }
