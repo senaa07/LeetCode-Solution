@@ -2,7 +2,7 @@ class Solution {
 public:
     int beautySum(string s) {
         
-        int ans = 0;
+        long int ans = 0;
         
         for (int i=0; i< s.size();i++){
 
