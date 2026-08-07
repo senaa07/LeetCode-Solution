@@ -3,9 +3,8 @@ public:
     int characterReplacement(string s, int k) {
         int startIndex = 0;
         unordered_map<char,int> freq;
-
-        int maxFreq = 0;
-        int ans = 0;
+        int maxFreq = INT_MIN;
+        int ans = INT_MIN;
 
         for(int endIndex=0; endIndex < s.size() ;endIndex++ ){
 
