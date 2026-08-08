@@ -13,17 +13,17 @@ class Solution {
 
 private:
     int ans = INT_MIN;
-    int PathFinder(TreeNode* root){
-        if(!root) return 0;
+    int PathFinder(TreeNode* node){
+        if(!node) return 0;
         int sum;
-        int leftMaxPath = PathFinder(root->left);
-        int rightMaxPath = PathFinder(root->right);
+        int leftMaxPath = max(0,PathFinder(node->left));
+        int rightMaxPath = max(0,PathFinder(node->right));
 
 
 
-        sum = max(leftMaxPath+root->val, max(rightMaxPath + root->val, root->val));
+        sum = max(leftMaxPath+node->val, max(rightMaxPath + node->val, node->val));
 
-        ans = max(leftMaxPath + rightMaxPath + root->val, max(ans, sum));
+        ans = max(leftMaxPath + rightMaxPath + node->val, max(ans, sum));
 
         return sum;
     }
