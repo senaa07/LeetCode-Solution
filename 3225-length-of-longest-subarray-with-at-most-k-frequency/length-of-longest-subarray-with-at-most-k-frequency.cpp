@@ -6,9 +6,10 @@ public:
         freq.reserve(n);
         int ans=INT_MIN;
         for(int left=0, right=0; right <n ;right++){
-
-            freq[nums[right]]++;
-            while(freq[nums[right]] > k){
+            int x = nums[right];
+            auto it = freq.find(x);
+            int& f = (it == freq.end())? freq[x]=1 : ++freq[x];
+            while(f > k){
                 freq[nums[left++]]--;
             }
 
