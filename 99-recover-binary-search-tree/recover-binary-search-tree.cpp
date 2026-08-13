@@ -16,23 +16,24 @@ private:
     TreeNode* first = NULL;
     TreeNode* second = NULL;
 
-    void helper(TreeNode* node){
+    void inorder(TreeNode* node){
         if(!node) return;
-
-        helper(node->left);
+        
+        inorder(node->left);
 
         if(prev && prev->val > node->val){
-            if(!first) first=prev;
-            second=node;
+            if(!first) first = prev;
+            second = node;
         }
-        prev=node;
-        helper(node->right);
+        prev= node;
+        inorder(node->right);
+        return;
     }
 
 public:
     void recoverTree(TreeNode* root) {
-        
-        helper(root);
-        swap(first->val,second->val);
+        inorder(root);
+        swap(second->val,first->val);
+        return;
     }
 };
